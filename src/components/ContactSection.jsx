@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { playClick, playCoin, playError } from '../utils/audio';
 import { PixelIcon } from './PixelIcon';
 import { useTranslation } from '../context/LanguageContext';
-import confetti from 'canvas-confetti';
 
 export const ContactSection = React.memo(() => {
   const { t, lang } = useTranslation();
@@ -91,11 +90,14 @@ export const ContactSection = React.memo(() => {
         });
 
         playCoin();
-        confetti({
-          particleCount: 90,
-          spread: 75,
-          origin: { y: 0.7 }
-        });
+        try {
+          const confetti = (await import('canvas-confetti')).default;
+          confetti({
+            particleCount: 90,
+            spread: 75,
+            origin: { y: 0.7 }
+          });
+        } catch (e) {}
       } else {
         playError();
         setToast({

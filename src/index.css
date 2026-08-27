@@ -257,3 +257,9 @@
   animation: shake 0.35s ease-in-out;
 }
 
+/* Content Visibility Optimization for Below-the-Fold Sections to reduce TBT */
+#projects, #tech-stack, #contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 650px;
+}
+

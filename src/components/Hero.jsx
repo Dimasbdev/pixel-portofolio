@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import { playClick, playCoin, playLaser, playPowerup } from '../utils/audio';
 import { PixelIcon } from './PixelIcon';
 import { useTranslation } from '../context/LanguageContext';
-import confetti from 'canvas-confetti';
 
-const HERO_IMAGE = "https://lh3.googleusercontent.com/aida-public/AB6AXuC3f7CKLDiW9SuQoJMyC1g4100HFO_3u8nQg5hersLrc48NEfbZ_iG_MAsyPfGPNP_g9KwqcYNeNghJYpjRqwqnD50pqElTYvHEqQAb4EjgC4VyP6QDzi1SweLbnl6xo0l-EzwsV9WhJnQrD-wk9B8p30toeHZ0jHxH2qyDuBiqIjIq8S6CLAffnkO8tEeeMVkDOKIeCUjvziMU-M1vJI4OA7HNshMruQFxJADIllH1m7MnkUQKWgpc";
+const HERO_IMAGE = "/hero-pixel.webp";
+
+// Lazy trigger for confetti to remove canvas-confetti from critical initial bundle
+const triggerConfetti = async (opts) => {
+  try {
+    const confetti = (await import('canvas-confetti')).default;
+    confetti(opts);
+  } catch (e) {}
+};
 
 export const Hero = ({ onStartGame, onOpenResume }) => {
   const { t } = useTranslation();
@@ -18,7 +25,7 @@ export const Hero = ({ onStartGame, onOpenResume }) => {
 
     if (newCount % 5 === 0) {
       playCoin();
-      confetti({
+      triggerConfetti({
         particleCount: 50,
         spread: 60,
         origin: { y: 0.6 }
@@ -30,7 +37,7 @@ export const Hero = ({ onStartGame, onOpenResume }) => {
 
   const handleStartGame = () => {
     playLaser();
-    confetti({
+    triggerConfetti({
       particleCount: 70,
       spread: 70,
       colors: ['#a900a9', '#00eefc', '#fae500', '#ffffff'],
