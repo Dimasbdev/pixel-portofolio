@@ -32,8 +32,8 @@ export const Header = ({ activeSection = 'hero', onOpenTerminal, soundEnabled, o
 
   const navLinks = [
     { id: 'hero', label: t.nav.home, href: '#hero' },
-    { id: 'quests', label: t.nav.projects, href: '#quests' },
-    { id: 'inventory', label: t.nav.inventory, href: '#inventory' },
+    { id: 'projects', label: t.nav.projects, href: '#projects' },
+    { id: 'tech-stack', label: t.nav.inventory, href: '#tech-stack' },
     // { id: 'experience', label: t.nav.experience, href: '#experience' }, // [UNCOMMENT TO RESTORE QUEST LOG LINK]
     { id: 'contact', label: t.nav.contact, href: '#contact' },
   ];

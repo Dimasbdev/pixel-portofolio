@@ -83,7 +83,7 @@ export const TechInventory = () => {
   };
 
   return (
-    <section id="inventory" className="flex flex-col gap-8 py-8 scroll-mt-24">
+    <section id="tech-stack" className="flex flex-col gap-8 py-8 scroll-mt-24">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b-4 border-primary pb-3">
         <div className="flex items-center gap-3">
@@ -173,7 +173,7 @@ export const TechInventory = () => {
                       {selectedItem.name}
                     </h3>
                     <div className="filter drop-shadow-[2px_2px_0px_#000]">
-                      <span className="pixel-stepped-sm bg-primary text-white px-2 py-0.5 font-silkscreen text-[8px] sm:text-[9px] font-bold tracking-wider border border-white inline-block whitespace-nowrap">
+                      <span className="pixel-stepped-sm bg-primary text-white px-2 py-0.5 font-code-sm text-[9px] sm:text-[10px] font-bold uppercase tracking-wider border border-white inline-block whitespace-nowrap">
                         {selectedItem.category}
                       </span>
                     </div>
@@ -189,7 +189,7 @@ export const TechInventory = () => {
 
               {/* Stepped Pixel WakaTime Share Bar */}
               <div className="flex flex-col gap-1.5">
-                <div className="flex justify-between font-silkscreen text-[10px] text-surface-variant">
+                <div className="flex justify-between font-code-sm text-[11px] font-bold uppercase tracking-wider text-surface-variant">
                   <span>{t.inventory.usageLevel}</span>
                   <span className="text-secondary-container font-bold whitespace-nowrap">{selectedItem.wakatimePct}</span>
                 </div>
@@ -205,14 +205,14 @@ export const TechInventory = () => {
 
               {/* Stepped Pixel Toolkit Badges */}
               <div className="flex flex-col gap-2 pt-1">
-                <span className="font-pixel text-[10px] text-tertiary-fixed font-bold flex items-center gap-1.5">
+                <span className="font-code-sm text-[11px] text-tertiary-fixed font-bold uppercase tracking-wider flex items-center gap-1.5">
                   <span className="text-secondary-container font-bold text-xs">►</span>
                   {t.inventory.toolkitTitle}
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedItem.tools.map((tool) => (
                     <div key={tool} className="filter drop-shadow-[1px_1px_0px_#000]">
-                      <span className="pixel-stepped-sm bg-black/85 text-secondary-fixed border border-secondary-container font-silkscreen text-[9px] px-2 py-1 inline-block whitespace-nowrap">
+                      <span className="pixel-stepped-sm bg-black/85 text-secondary-fixed border border-secondary-container font-code-sm text-[10px] font-bold tracking-wide px-2 py-0.5 inline-block whitespace-nowrap">
                         {tool}
                       </span>
                     </div>
@@ -223,7 +223,7 @@ export const TechInventory = () => {
               {/* Stepped Pixel Primary Use Cases Box */}
               <div className="filter drop-shadow-[3px_3px_0px_#000]">
                 <div className="pixel-stepped-sm bg-black/70 border-2 border-secondary-container p-3.5 flex flex-col gap-1.5">
-                  <span className="font-pixel text-[10px] text-primary-fixed-dim font-bold flex items-center gap-1.5">
+                  <span className="font-code-sm text-[11px] text-primary-fixed-dim font-bold uppercase tracking-wider flex items-center gap-1.5">
                     <span className="text-secondary-container font-bold text-xs">►</span>
                     {t.inventory.useCasesTitle}
                   </span>

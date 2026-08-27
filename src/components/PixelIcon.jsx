@@ -18,6 +18,22 @@ export const PixelIcon = React.memo(({ name, size = 20, className = '' }) => {
           </svg>
         );
 
+      case 'gamepad':
+      case 'controller':
+        return (
+          <svg viewBox="0 0 16 16" width={size} height={size} fill="currentColor" shapeRendering="crispEdges" className={className}>
+            <path d="M3 4h10v1H3V4zm-2 1h14v6H1V5zm1 1v4h12V6H2zm2 1h1v1H4V7zm1 1h1v1H5V8zm-1 1h1v1H4V9zm-1-1h1v1H3V8zm8-1h1v1h-1V7zm2 0h1v1h-1V7zm-1 1h1v1h-1V8zm-1 1h1v1h-1V9zM2 11h3v2H2v-2zm9 0h3v2h-3v-2z" />
+          </svg>
+        );
+
+      case 'play':
+      case 'start':
+        return (
+          <svg viewBox="0 0 16 16" width={size} height={size} fill="currentColor" shapeRendering="crispEdges" className={className}>
+            <path d="M4 2h2v1H4V2zm0 1h4v1H4V3zm0 1h6v1H4V4zm0 1h8v1H4V5zm0 1h8v2H4V6zm0 2h8v1H4V8zm0 1h6v1H4V9zm0 1h4v1H4v-1zm0 1h2v1H4v-1z" />
+          </svg>
+        );
+
       case 'rocket':
       case 'quests':
         return (

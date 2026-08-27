@@ -185,7 +185,7 @@ export const ContactSection = React.memo(() => {
 
               <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
                 <div>
-                  <label className="font-silkscreen text-xs font-bold text-on-surface block mb-1.5">
+                  <label className="font-code-sm text-xs font-bold text-on-surface uppercase tracking-wider block mb-1.5">
                     {t.contact.nameLabel}
                   </label>
                   <div className="filter drop-shadow-[2px_2px_0px_#000]">
@@ -205,7 +205,7 @@ export const ContactSection = React.memo(() => {
                 </div>
 
                 <div>
-                  <label className="font-silkscreen text-xs font-bold text-on-surface block mb-1.5">
+                  <label className="font-code-sm text-xs font-bold text-on-surface uppercase tracking-wider block mb-1.5">
                     {t.contact.emailLabel}
                   </label>
                   <div className="filter drop-shadow-[2px_2px_0px_#000]">
@@ -225,7 +225,7 @@ export const ContactSection = React.memo(() => {
                 </div>
 
                 <div>
-                  <label className="font-silkscreen text-xs font-bold text-on-surface block mb-1.5">
+                  <label className="font-code-sm text-xs font-bold text-on-surface uppercase tracking-wider block mb-1.5">
                     {t.contact.messageLabel}
                   </label>
                   <div className="filter drop-shadow-[2px_2px_0px_#000]">
@@ -249,7 +249,7 @@ export const ContactSection = React.memo(() => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full sm:w-auto font-pixel text-xs py-4 px-8 flex items-center justify-center gap-2.5 cursor-pointer select-none transition-all ${
+                    className={`w-full sm:w-auto font-code-sm font-bold uppercase tracking-wider text-xs py-4 px-8 flex items-center justify-center gap-2.5 cursor-pointer select-none transition-all ${
                       toast.show && toast.type === 'success'
                         ? 'pixel-btn-arcade-cyan bg-secondary-container text-black border-2 border-black'
                         : 'pixel-btn-arcade-primary bg-primary hover:bg-primary-container text-white'
@@ -274,7 +274,7 @@ export const ContactSection = React.memo(() => {
             <div className="pixel-stepped-card bg-surface p-6 md:p-8 flex flex-col gap-6">
               {/* Direct Info Section */}
               <div className="flex flex-col gap-4">
-                <h4 className="font-silkscreen text-xs font-bold text-primary flex items-center gap-2 border-b-2 border-dashed border-primary/30 pb-2">
+                <h4 className="font-code-sm text-xs font-bold text-primary uppercase tracking-wider flex items-center gap-2 border-b-2 border-dashed border-primary/30 pb-2">
                   <PixelIcon name="radar" size={16} />
                   {t.contact.infoTitle}
                 </h4>
@@ -288,7 +288,7 @@ export const ContactSection = React.memo(() => {
                         <PixelIcon name="mail" size={18} />
                       </span>
                       <div className="overflow-hidden">
-                        <span className="text-[10px] text-gray-600 font-silkscreen font-bold block">
+                        <span className="text-[11px] text-gray-600 font-code-sm font-bold uppercase tracking-wider block">
                           {t.contact.emailInbox}
                         </span>
                         <a href="mailto:dimasfirmandev@gmail.com" className="font-bold text-black hover:text-primary transition-colors truncate block text-xs sm:text-sm">
@@ -305,7 +305,7 @@ export const ContactSection = React.memo(() => {
                         <PixelIcon name="clock" size={18} />
                       </span>
                       <div>
-                        <span className="text-[10px] text-gray-600 font-silkscreen font-bold block">
+                        <span className="text-[11px] text-gray-600 font-code-sm font-bold uppercase tracking-wider block">
                           {t.contact.timezoneTitle}
                         </span>
                         <span className="font-bold text-black text-xs sm:text-sm">
@@ -322,7 +322,7 @@ export const ContactSection = React.memo(() => {
                         <PixelIcon name="bolt" size={18} />
                       </span>
                       <div>
-                        <span className="text-[10px] text-gray-600 font-silkscreen font-bold block">
+                        <span className="text-[11px] text-gray-600 font-code-sm font-bold uppercase tracking-wider block">
                           {t.contact.latencyTitle}
                         </span>
                         <span className="font-bold text-black text-xs sm:text-sm">
@@ -336,7 +336,7 @@ export const ContactSection = React.memo(() => {
 
               {/* Social Profiles Section (Real Direct GitHub & Instagram Links) */}
               <div className="flex flex-col gap-3.5 pt-2 border-t-2 border-dashed border-primary/30">
-                <h4 className="font-silkscreen text-xs font-bold text-primary">
+                <h4 className="font-code-sm text-xs font-bold text-primary uppercase tracking-wider">
                   {t.contact.socialTitle}
                 </h4>
 
@@ -351,7 +351,7 @@ export const ContactSection = React.memo(() => {
                         target="_blank"
                         rel="noreferrer"
                         onClick={() => playClick()}
-                        className="w-full block pixel-btn-arcade-dark bg-white hover:bg-secondary-container hover:text-black text-black p-3.5 font-silkscreen text-xs font-bold text-center select-none border-2 border-black transition-colors"
+                        className="w-full block pixel-btn-arcade-dark bg-white hover:bg-secondary-container hover:text-black text-black p-3.5 font-code-sm text-xs font-bold uppercase tracking-wider text-center select-none border-2 border-black transition-colors"
                       >
                         {s.label}
                       </a>

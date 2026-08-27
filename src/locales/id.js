@@ -5,7 +5,7 @@ export const id = {
   nav: {
     home: 'BERANDA',
     projects: 'PROYEK',
-    inventory: 'KEAHLIAN',
+    inventory: 'TECH STACK',
     experience: 'PENGALAMAN',
     contact: 'KONTAK',
     cli: 'CLI',

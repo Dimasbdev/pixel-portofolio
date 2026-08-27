@@ -65,7 +65,7 @@ export const Hero = ({ onStartGame, onOpenResume }) => {
               onClick={handleStartGame}
               className="pixel-btn-arcade-primary bg-primary hover:bg-primary-container text-white font-pixel text-[11px] px-6 py-4 flex items-center gap-2.5 cursor-pointer select-none transition-transform"
             >
-              <PixelIcon name="gamepad" size={16} />
+              <PixelIcon name="play" size={14} />
               {t.hero.startGame}
             </button>
           </div>

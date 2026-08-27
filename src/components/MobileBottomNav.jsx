@@ -12,8 +12,8 @@ export const MobileBottomNav = ({ activeSection = 'hero', onOpenTerminal }) => {
 
   const navItems = [
     { id: 'hero', label: t.nav.home, icon: 'home', href: '#hero' },
-    { id: 'quests', label: t.nav.projects, icon: 'rocket', href: '#quests' },
-    { id: 'inventory', label: t.nav.inventory, icon: 'backpack', href: '#inventory' },
+    { id: 'projects', label: t.nav.projects, icon: 'rocket', href: '#projects' },
+    { id: 'tech-stack', label: t.nav.inventory, icon: 'backpack', href: '#tech-stack' },
     { id: 'cli', label: t.nav.cli, icon: 'terminal', isAction: true },
     { id: 'contact', label: t.nav.contact, icon: 'mail', href: '#contact' },
   ];

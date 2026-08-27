@@ -25,7 +25,7 @@ export default function App() {
   // Automatic Active Section Scrollspy
   useEffect(() => {
     // [ADD 'experience' BACK TO ARRAY WHEN UNCOMMENTING QUEST LOG]
-    const sections = ['hero', 'quests', 'inventory', 'contact'];
+    const sections = ['hero', 'projects', 'tech-stack', 'contact'];
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 220; // Offset for header detection

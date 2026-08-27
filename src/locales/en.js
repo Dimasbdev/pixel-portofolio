@@ -5,7 +5,7 @@ export const en = {
   nav: {
     home: 'HOME',
     projects: 'PROJECTS',
-    inventory: 'SKILLS',
+    inventory: 'TECH STACK',
     experience: 'QUEST_LOG',
     contact: 'CONTACT',
     cli: 'CLI',

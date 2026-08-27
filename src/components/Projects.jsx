@@ -66,7 +66,7 @@ export const Projects = () => {
   };
 
   return (
-    <section id="quests" className="flex flex-col gap-8 py-8 scroll-mt-24">
+    <section id="projects" className="flex flex-col gap-8 py-8 scroll-mt-24">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b-4 border-primary pb-3">
         <div className="flex items-center gap-3">
@@ -84,7 +84,7 @@ export const Projects = () => {
             <div key={cat.key} className="filter drop-shadow-[3px_3px_0px_#000]">
               <button
                 onClick={() => handleSelectCategory(cat.key)}
-                className={`font-pixel text-[9px] px-3.5 py-2 cursor-pointer select-none transition-transform ${
+                className={`font-code-sm text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 cursor-pointer select-none transition-transform ${
                   selectedCategoryKey === cat.key
                     ? 'pixel-btn-arcade-primary bg-primary text-white'
                     : 'pixel-btn-arcade-dark bg-surface-variant text-on-surface hover:bg-surface-container'
@@ -118,7 +118,7 @@ export const Projects = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
-                    <span className="bg-black/85 text-secondary-container font-pixel text-[10px] px-3 py-2 border-2 border-secondary-container shadow-[2px_2px_0px_#000]">
+                    <span className="bg-black/85 text-secondary-container font-code-sm font-bold text-[11px] uppercase tracking-wider px-3 py-1.5 border-2 border-secondary-container shadow-[2px_2px_0px_#000]">
                       {t.projects.inspect}
                     </span>
                   </div>
@@ -138,7 +138,7 @@ export const Projects = () => {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="bg-tertiary-fixed text-on-tertiary-fixed font-silkscreen text-[9px] font-bold px-2 py-0.5 border-2 border-secondary-container shadow-[1px_1px_0px_#000]"
+                        className="bg-tertiary-fixed text-on-tertiary-fixed font-code-sm text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 border-2 border-secondary-container shadow-[1px_1px_0px_#000]"
                       >
                         {tag}
                       </span>
@@ -172,9 +172,9 @@ export const Projects = () => {
                   </button>
                 </div>
 
-                <div className="flex items-center gap-2 text-primary font-silkscreen text-xs font-bold">
+                <div className="flex items-center gap-2 text-primary font-code-sm text-xs font-bold uppercase tracking-wider">
                   <span className="text-primary-container">►</span>
-                  <span className="uppercase tracking-wider">{selectedProject.category}</span>
+                  <span>{selectedProject.category}</span>
                 </div>
 
                 <h3 className="font-pixel text-lg md:text-xl font-bold text-on-surface">
@@ -196,7 +196,7 @@ export const Projects = () => {
                 </p>
 
                 <div className="bg-surface-variant/80 p-3 border-2 border-primary">
-                  <span className="font-pixel text-[10px] font-bold text-primary block mb-1">
+                  <span className="font-code-sm text-[11px] font-bold text-primary uppercase tracking-wider block mb-1">
                     {t.projects.summaryTitle}
                   </span>
                   <p className="font-code-sm text-xs text-on-surface-variant leading-relaxed">
@@ -208,7 +208,7 @@ export const Projects = () => {
                   {selectedProject.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="bg-tertiary-fixed text-on-tertiary-fixed font-silkscreen text-[10px] font-bold px-2 py-1 border-2 border-secondary-container shadow-[1px_1px_0px_#000]"
+                      className="bg-tertiary-fixed text-on-tertiary-fixed font-code-sm text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 border-2 border-secondary-container shadow-[1px_1px_0px_#000]"
                     >
                       {tag}
                     </span>
@@ -224,7 +224,7 @@ export const Projects = () => {
                         target="_blank"
                         rel="noreferrer"
                         onClick={() => playCoin()}
-                        className="w-full block pixel-btn-arcade-primary bg-primary text-white text-center font-pixel text-[10px] py-3.5 select-none hover:bg-primary-container transition-colors"
+                        className="w-full block pixel-btn-arcade-primary bg-primary text-white text-center font-code-sm text-xs font-bold uppercase tracking-wider py-3 select-none hover:bg-primary-container transition-colors"
                       >
                         {t.projects.openDemo}
                       </a>
@@ -236,7 +236,7 @@ export const Projects = () => {
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => playClick()}
-                      className="w-full block pixel-btn-arcade-dark bg-white hover:bg-secondary-container hover:text-black text-on-surface text-center font-pixel text-[10px] py-3.5 select-none border-2 border-black transition-colors"
+                      className="w-full block pixel-btn-arcade-dark bg-white hover:bg-secondary-container hover:text-black text-black text-center font-code-sm text-xs font-bold uppercase tracking-wider py-3 select-none border-2 border-black transition-colors"
                     >
                       {t.projects.viewCode}
                     </a>
