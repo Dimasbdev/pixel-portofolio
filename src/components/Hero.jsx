@@ -127,6 +127,8 @@ export const Hero = ({ onStartGame, onOpenResume }) => {
                 width={400}
                 height={400}
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="bg-black/85 text-secondary-fixed font-pixel text-[9px] sm:text-[10px] px-2.5 py-1.5 border-2 border-secondary-container shadow-[2px_2px_0px_#000]">

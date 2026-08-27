@@ -22,30 +22,27 @@ export default function App() {
     setSoundActive(getSoundEnabled());
   }, []);
 
-  // Automatic Active Section Scrollspy
+  // High-Performance Active Section Scrollspy using native IntersectionObserver (0 layout thrashing)
   useEffect(() => {
-    // [ADD 'experience' BACK TO ARRAY WHEN UNCOMMENTING QUEST LOG]
     const sections = ['hero', 'projects', 'tech-stack', 'contact'];
     
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 220; // Offset for header detection
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const sectionId = sections[i];
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(sectionId);
-            break;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
           }
-        }
-      }
-    };
+        });
+      },
+      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+    );
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const toggleSound = () => {
