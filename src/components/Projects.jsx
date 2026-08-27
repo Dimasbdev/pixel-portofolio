@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { playClick, playCoin, playPowerup } from '../utils/audio';
 import { PixelIcon } from './PixelIcon';
 import { useTranslation } from '../context/LanguageContext';
@@ -151,19 +152,19 @@ export const Projects = () => {
         ))}
       </div>
 
-      {/* Project Details Modal */}
-      {selectedProject && (
+      {/* Project Details Modal mounted via React Portal to document.body */}
+      {selectedProject && typeof document !== 'undefined' && createPortal(
         <div 
-          className="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/80 backdrop-blur-md z-[9999] flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
           onClick={handleCloseModal}
         >
-          <div className="filter drop-shadow-[8px_8px_0px_#00eefc] max-w-lg w-full max-h-[90vh] overflow-y-auto">
-            <div className="pixel-stepped-card bg-primary p-1.5">
+          <div className="filter drop-shadow-[4px_4px_0px_#00eefc] sm:drop-shadow-[8px_8px_0px_#00eefc] max-w-lg w-full max-h-[88vh] overflow-y-auto my-auto">
+            <div className="pixel-stepped-card bg-primary p-1 sm:p-1.5">
               <div 
-                className="pixel-stepped-card bg-surface p-6 relative flex flex-col gap-4 animate-in fade-in zoom-in-95 duration-150"
+                className="pixel-stepped-card bg-surface p-4 sm:p-6 relative flex flex-col gap-3.5 sm:gap-4 animate-in fade-in zoom-in-95 duration-150"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="absolute top-4 right-4 filter drop-shadow-[2px_2px_0px_#000]">
+                <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 filter drop-shadow-[2px_2px_0px_#000]">
                   <button
                     onClick={handleCloseModal}
                     className="pixel-btn-arcade-danger bg-error text-white w-8 h-8 flex items-center justify-center font-bold font-pixel text-xs cursor-pointer select-none"
@@ -172,16 +173,16 @@ export const Projects = () => {
                   </button>
                 </div>
 
-                <div className="flex items-center gap-2 text-primary font-code-sm text-xs font-bold uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-primary font-code-sm text-xs font-bold uppercase tracking-wider pr-10">
                   <span className="text-primary-container">►</span>
                   <span>{selectedProject.category}</span>
                 </div>
 
-                <h3 className="font-pixel text-lg md:text-xl font-bold text-on-surface">
+                <h3 className="font-pixel text-base sm:text-lg md:text-xl font-bold text-on-surface">
                   {selectedProject.title}
                 </h3>
 
-                <div className="h-52 bg-surface-variant border-2 border-dotted border-primary flex items-center justify-center overflow-hidden">
+                <div className="h-44 sm:h-52 bg-surface-variant border-2 border-dotted border-primary flex items-center justify-center overflow-hidden">
                   <img 
                     src={selectedProject.image} 
                     alt={selectedProject.title}
@@ -216,7 +217,7 @@ export const Projects = () => {
                 </div>
 
                 {/* Modal Action Buttons */}
-                <div className="flex gap-3 pt-2">
+                <div className="flex gap-2.5 sm:gap-3 pt-2">
                   {selectedProject.demoUrl && (
                     <div className="flex-1 filter drop-shadow-[3px_3px_0px_#000]">
                       <a
@@ -224,7 +225,7 @@ export const Projects = () => {
                         target="_blank"
                         rel="noreferrer"
                         onClick={() => playCoin()}
-                        className="w-full block pixel-btn-arcade-primary bg-primary text-white text-center font-code-sm text-xs font-bold uppercase tracking-wider py-3 select-none hover:bg-primary-container transition-colors"
+                        className="w-full block pixel-btn-arcade-primary bg-primary text-white text-center font-code-sm text-xs font-bold uppercase tracking-wider py-2.5 sm:py-3 select-none hover:bg-primary-container transition-colors"
                       >
                         {t.projects.openDemo}
                       </a>
@@ -236,7 +237,7 @@ export const Projects = () => {
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => playClick()}
-                      className="w-full block pixel-btn-arcade-dark bg-white hover:bg-secondary-container hover:text-black text-black text-center font-code-sm text-xs font-bold uppercase tracking-wider py-3 select-none border-2 border-black transition-colors"
+                      className="w-full block pixel-btn-arcade-dark bg-white hover:bg-secondary-container hover:text-black text-black text-center font-code-sm text-xs font-bold uppercase tracking-wider py-2.5 sm:py-3 select-none border-2 border-black transition-colors"
                     >
                       {t.projects.viewCode}
                     </a>
@@ -245,7 +246,8 @@ export const Projects = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
