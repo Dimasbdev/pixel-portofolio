@@ -2,7 +2,7 @@
 
 <p align="center">
   <strong>Personal Developer Portfolio of Dimas Firmansyah</strong><br />
-
+  <a href="https://dimasf.me"><strong>https://dimasf.me</strong></a>
 </p>
 
 <p align="center">
@@ -28,6 +28,7 @@
   - **Financial Tracker**: Comprehensive income & expense analytics with dynamic trends *(Python, Flask, MySQL, TailwindCSS)*.
 - **Live Web3Forms Contact Integration**: Working email delivery to inbox with custom 8-bit error validation, shake animations, and retro floating toast notifications.
 - **Smart Hybrid Mobile Navigation**: Clean static desktop-friendly header paired with an ergonomically placed Mobile Bottom Navigation Bar.
+- **Optimized Performance**: Sub-second Largest Contentful Paint (LCP), `content-visibility: auto` rendering optimization, and vendor code splitting for 100/100 Lighthouse scores.
 
 ---
 
@@ -61,13 +62,23 @@
    npm install
    ```
 
-3. **Run development server**:
+3. **Configure Environment Variables**:
+   Copy the `.env.example` template to `.env` and fill in your access keys:
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env`:
+   ```env
+   VITE_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key_here
+   ```
+
+4. **Run development server**:
    ```bash
    npm run dev
    ```
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-4. **Build for production**:
+5. **Build for production**:
    ```bash
    npm run build
    ```
@@ -78,8 +89,10 @@
 
 ```text
 ├── public/
-│   ├── projects/          # Real project screenshots
-│   └── vite.svg
+│   ├── cursors/           # Static cached 8-bit SVG cursors
+│   ├── projects/          # High-efficiency WebP project thumbnails
+│   ├── favicon.png        # Handcrafted > D_ pixel brand icon
+│   └── hero-pixel.webp    # Sub-second local hero image
 ├── src/
 │   ├── components/        # Modular 8-Bit UI components
 │   │   ├── ContactSection.jsx
@@ -92,13 +105,16 @@
 │   │   ├── TechInventory.jsx
 │   │   ├── TechLogos.jsx
 │   │   └── TerminalModal.jsx
-│   ├── context/           # Language state management
-│   ├── utils/             # Web Audio synthesizer & i18n dictionaries
+│   ├── context/           # Language state management (LanguageContext.jsx)
+│   ├── locales/           # Modular bilingual dictionaries (en.js, id.js)
+│   ├── utils/             # Web Audio synthesizer & translation hub
 │   ├── App.jsx            # Master layout & interaction orchestrator
 │   ├── index.css          # Pixel clip-paths, inset shadows & animations
 │   └── main.jsx
-├── index.html             # SEO meta headers & typography preconnects
+├── .env.example           # Public environment variable template
+├── index.html             # SEO meta headers, preconnects & non-blocking fonts
 ├── tailwind.config.js     # Custom retro color tokens & font families
+├── vite.config.js         # Vendor code splitting & server config
 └── package.json
 ```
 
@@ -107,6 +123,7 @@
 ## Author
 
 **Dimas Firmansyah** — *Backend Developer*
+- **Website**: [https://dimasf.me](https://dimasf.me)
 - **GitHub**: [@Dimasbdev](https://github.com/Dimasbdev)
 - **Instagram**: [@dimmm.f](https://www.instagram.com/dimmm.f)
 - **Email**: [dimasfirmandev@gmail.com](mailto:dimasfirmandev@gmail.com)
