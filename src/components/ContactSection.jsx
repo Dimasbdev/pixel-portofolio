@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { playClick, playCoin, playError } from '../utils/audio';
 import { PixelIcon } from './PixelIcon';
 import { useTranslation } from '../context/LanguageContext';
@@ -125,9 +126,9 @@ export const ContactSection = React.memo(() => {
 
   return (
     <section id="contact" className="flex flex-col gap-8 py-8 scroll-mt-24 relative">
-      {/* 8-Bit Floating Retro Toast Notification (Bilingual Error / Success) */}
-      {toast.show && (
-        <div className="fixed bottom-20 md:bottom-8 right-4 md:right-8 z-50 max-w-sm w-[calc(100%-2rem)] filter drop-shadow-[5px_5px_0px_#000] animate-in fade-in slide-in-from-bottom-4 duration-200">
+      {/* 8-Bit Floating Retro Toast Notification (Bilingual Error / Success) Portal */}
+      {toast.show && typeof document !== 'undefined' && createPortal(
+        <div className="fixed top-5 md:top-6 left-4 right-4 sm:left-auto sm:right-6 md:right-8 z-[99999] max-w-sm sm:max-w-md w-[calc(100%-2rem)] sm:w-auto mx-auto sm:mx-0 filter drop-shadow-[5px_5px_0px_#000000] pointer-events-auto select-none transition-all">
           <div className={`pixel-stepped-card p-1 ${toast.type === 'error' ? 'bg-error' : 'bg-primary'}`}>
             <div className="pixel-stepped-card bg-surface p-4 flex items-center justify-between gap-3 border-2 border-black">
               <div className="flex items-center gap-3 min-w-0">
@@ -160,7 +161,8 @@ export const ContactSection = React.memo(() => {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* Section Header */}

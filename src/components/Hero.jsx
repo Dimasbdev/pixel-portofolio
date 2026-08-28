@@ -49,20 +49,31 @@ export const Hero = ({ onStartGame, onOpenResume }) => {
     <section id="hero" className="flex flex-col md:flex-row items-center justify-between gap-10 pt-4 pb-2 w-full max-w-full">
       {/* Left Column: Hero Copy & Actions */}
       <div className="flex-1 flex flex-col gap-5 z-10 w-full max-w-full">
-        <div className="inline-flex items-center gap-2 bg-surface-variant/90 border-2 border-black px-3 py-1.5 w-fit shadow-[3px_3px_0px_#000]">
-          <span className="inline-block w-2.5 h-2.5 bg-[#00eefc] animate-ping"></span>
-          <span className="font-pixel text-[10px] font-bold text-on-surface-variant">
-            {t.hero.statusBadge}
-          </span>
+        {/* Status Badge: Authentic 8-Bit Pixel Stepped Badge */}
+        <div className="filter drop-shadow-[3px_3px_0px_#000000] w-fit">
+          <div className="pixel-stepped-sm bg-black p-[2px]">
+            <div className="pixel-stepped-sm bg-surface-variant px-3.5 py-1.5 flex items-center">
+              <span className="font-pixel text-[10px] font-bold text-on-surface-variant tracking-wider">
+                {t.hero.statusBadge}
+              </span>
+            </div>
+          </div>
         </div>
 
         <h1 className="font-pixel text-2xl sm:text-4xl md:text-5xl font-bold text-primary leading-[1.3] tracking-tight drop-shadow-[3px_3px_0px_#00eefc] sm:drop-shadow-[4px_4px_0px_#00eefc] break-words">
           {t.hero.titleLine1}<br />{t.hero.titleLine2}
         </h1>
 
-        <p className="font-code-sm text-xs sm:text-sm bg-surface-variant/90 inline-block p-3.5 border-2 border-primary w-fit text-on-surface-variant shadow-[3px_3px_0px_rgba(0,0,0,0.15)] leading-relaxed">
-          {t.hero.bio}
-        </p>
+        {/* Bio Card: Authentic 8-Bit Pixel Stepped Card */}
+        <div className="filter drop-shadow-[4px_4px_0px_#a900a9] w-fit max-w-xl">
+          <div className="pixel-stepped-card bg-primary p-[2px]">
+            <div className="pixel-stepped-card bg-surface-variant p-4 sm:p-4.5">
+              <p className="font-code-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                {t.hero.bio}
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Action Buttons: Authentic 8-Bit Pixel Arcade Style */}
         <div className="flex flex-wrap gap-4 mt-1">
@@ -110,8 +121,19 @@ export const Hero = ({ onStartGame, onOpenResume }) => {
             </svg>
           </div>
 
-          {/* Bottom-Left: Pixelated Cyan Box */}
-          <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-5 w-28 sm:w-32 h-7 sm:h-8 bg-secondary-container border-2 sm:border-4 border-black shadow-[3px_3px_0px_#000] z-0 select-none pointer-events-none"></div>
+          {/* Bottom-Left: Authentic 8-Bit Pixelated Cyan Box */}
+          <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-5 z-0 select-none pointer-events-none filter drop-shadow-[3px_3px_0px_#000000]">
+            <svg width="128" height="32" viewBox="0 0 32 8" shapeRendering="crispEdges" className="w-28 sm:w-36 h-7 sm:h-9">
+              {/* Outer black pixel border with stepped pixel corners */}
+              <path d="M2 0h28v1h1v1h1v4h-1v1h-1v1H2v-1H1V6H0V2h1V1h1V0z" fill="#000000" />
+              {/* Cyan pixel body fill */}
+              <path d="M2 1h28v1h1v4h-1v1H2v-1H1V2h1V1z" fill="#00eefc" />
+              {/* Top pixel highlight */}
+              <rect x="2" y="1" width="28" height="1" fill="#7df4ff" />
+              {/* Bottom pixel shadow accent */}
+              <rect x="2" y="6" width="28" height="1" fill="#00878e" />
+            </svg>
+          </div>
 
           {/* Framed Pixel Art Card */}
           <div 
