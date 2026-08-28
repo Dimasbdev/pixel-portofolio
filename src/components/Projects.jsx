@@ -137,12 +137,11 @@ export const Projects = () => {
 
                   <div className="flex flex-wrap gap-1.5 pt-3 border-t-2 border-dashed border-primary/30 mt-auto min-h-[58px] content-start">
                     {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-tertiary-fixed text-on-tertiary-fixed font-code-sm text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 border-2 border-secondary-container shadow-[1px_1px_0px_#000]"
-                      >
-                        {tag}
-                      </span>
+                      <div key={tag} className="filter drop-shadow-[1.5px_1.5px_0px_#000000]">
+                        <span className="pixel-stepped-sm bg-tertiary-fixed text-on-tertiary-fixed font-code-sm text-[9px] sm:text-[10px] font-bold tracking-wider uppercase px-2.5 py-0.5 border border-black inline-block">
+                          {tag}
+                        </span>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -205,14 +204,13 @@ export const Projects = () => {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {selectedProject.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-tertiary-fixed text-on-tertiary-fixed font-code-sm text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 border-2 border-secondary-container shadow-[1px_1px_0px_#000]"
-                    >
-                      {tag}
-                    </span>
+                    <div key={tag} className="filter drop-shadow-[2px_2px_0px_#000000]">
+                      <span className="pixel-stepped-sm bg-tertiary-fixed text-on-tertiary-fixed font-code-sm text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 border border-black inline-block">
+                        {tag}
+                      </span>
+                    </div>
                   ))}
                 </div>
 

@@ -68,32 +68,29 @@ export const en = {
   },
   inventory: {
     title: 'TECH STACK',
-    wakatimeBadge: 'POWERED BY WAKATIME DATA',
     bagTitle: 'BAG (SLOTS: 8/16)',
-    topBadge: 'TOP: PYTHON (36%)',
-    clickTip: 'Click any inventory slot to inspect toolkit, real-world use-cases, and WakaTime share.',
-    usageLevel: 'USAGE & IMPORTANCE LEVEL',
+    clickTip: 'Click any inventory slot to inspect toolkit, libraries, and real-world use-cases.',
     toolkitTitle: 'FREQUENTLY USED TOOLKIT:',
     useCasesTitle: 'PRIMARY USE CASES:',
     items: {
       python: {
-        category: 'CORE BACKEND',
+        category: 'PRIMARY STACK',
         status: 'CORE DAILY DRIVER',
         wakatimePct: '36.02%',
         rarity: 'PRIMARY',
         useCases: 'Backend APIs, Web Automation & Scrapers, Data Processing, CLI Utilities',
         description: 'Forged as the core powerhouse. Wielded for high-performance automation, data processing, backend services, and clean script orchestration.'
       },
-      markdown: {
-        category: 'DOCS & SPECS',
-        status: 'KNOWLEDGE & SPECS',
-        wakatimePct: '24.59%',
-        rarity: 'SPECS',
-        useCases: 'System Architecture Blueprints, Technical Specifications, Structured Project Docs',
-        description: 'Structured documentation format enabling rapid architectural RFCs, clean API blueprints, and technical documentation.'
+      database: {
+        category: 'DATA ARCHITECTURE',
+        status: 'RELATIONAL STORAGE',
+        wakatimePct: 'SQL',
+        rarity: 'DATABASE',
+        useCases: 'PostgreSQL, MySQL, SQLite, Complex Queries, Schema Design, Indexing & Transactions',
+        description: 'Engineered relational data architectures, optimized ACID transactions, indexing strategies, and reliable schema migrations across PostgreSQL, MySQL, and SQLite databases.'
       },
       javascript: {
-        category: 'FRONTEND & API',
+        category: 'CLIENT SCRIPT',
         status: 'DYNAMIC WEB ENGINE',
         wakatimePct: '9.46%',
         rarity: 'FRONTEND',
@@ -101,7 +98,7 @@ export const en = {
         description: 'Interactive web client scripting, state management, and seamless backend API consumption.'
       },
       html: {
-        category: 'SEMANTIC UI',
+        category: 'WEB INTERFACE',
         status: 'SEMANTIC STYLING',
         wakatimePct: '6.87%',
         rarity: 'UI & STYLING',
@@ -109,7 +106,7 @@ export const en = {
         description: 'Accessible semantic structures and responsive styling shielding web applications from layout shifts.'
       },
       bash: {
-        category: 'CLI AUTOMATION',
+        category: 'SYSTEM UTILITY',
         status: 'SYSTEM AUTOMATION',
         wakatimePct: '4.15%',
         rarity: 'AUTOMATION',
@@ -117,7 +114,7 @@ export const en = {
         description: 'Direct interface with the operating system kernel for shell scripting, workflow automation, and server management.'
       },
       php: {
-        category: 'SERVER-SIDE',
+        category: 'MVC WEB BACKEND',
         status: 'SERVER-SIDE ARCHITECTURE',
         wakatimePct: '1.96%',
         rarity: 'BACKEND',
@@ -125,17 +122,17 @@ export const en = {
         description: 'Server-side scripting and templating engine powering robust web backends and CMS workflows.'
       },
       git: {
-        name: 'Git Versioning',
-        category: 'VERSION CONTROL',
+        name: 'Git',
+        category: 'SOURCE CONTROL',
         status: 'VERSION CONTROL',
-        wakatimePct: 'DAILY',
+        wakatimePct: 'VERSION CONTROL',
         rarity: 'DEVOPS',
         useCases: 'Codebase Version History, Team Collaboration, Release Engineering & CI/CD',
         description: 'Immutable commit history tracking every code evolution across repositories with precision.'
       },
       docker: {
         name: 'Docker',
-        category: 'CONTAINER & DEVOPS',
+        category: 'CONTAINERIZATION',
         status: 'CONTAINERIZATION',
         wakatimePct: 'DEVOPS',
         rarity: 'INFRASTRUCTURE',
@@ -159,8 +156,8 @@ export const en = {
     successSubtitle: 'Thank you for reaching out. Your message has been delivered and I will reply within 24 hours.',
     infoTitle: 'CONTACT INFORMATION',
     emailInbox: 'PRIMARY EMAIL',
-    timezoneTitle: 'TIMEZONE & AVAILABILITY',
-    timezoneVal: 'UTC+8 (WITA)',
+    timezoneTitle: 'LOCATION',
+    timezoneVal: 'Samarinda, Indonesia',
     latencyTitle: 'RESPONSE TIME',
     latencyVal: '< 24 Hours',
     socialTitle: 'PROFILES & SOCIALS',

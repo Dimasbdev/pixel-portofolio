@@ -112,6 +112,36 @@ export const TechLogo = ({ name, size = 28, className = '' }) => {
         </svg>
       );
 
+    case 'database':
+    case 'sql':
+      return (
+        <svg viewBox="0 0 24 24" width={size} height={size} shapeRendering="crispEdges" className={className}>
+          {/* Top Cylinder Disc (PostgreSQL / Blue Accent) */}
+          <rect x="5" y="3" width="14" height="2" fill="#000000" />
+          <rect x="4" y="4" width="16" height="3" fill="#336791" />
+          <rect x="6" y="4" width="12" height="1" fill="#7df4ff" />
+          <rect x="5" y="7" width="14" height="1" fill="#000000" />
+          <rect x="17" y="5" width="2" height="1" fill="#00ff66" />
+
+          {/* Middle Cylinder Disc (MySQL / Teal Accent) */}
+          <rect x="4" y="8" width="16" height="4" fill="#00758f" />
+          <rect x="6" y="8" width="12" height="1" fill="#00eefc" />
+          <rect x="5" y="12" width="14" height="1" fill="#000000" />
+          <rect x="17" y="9" width="2" height="1" fill="#00ff66" />
+
+          {/* Bottom Cylinder Disc */}
+          <rect x="4" y="13" width="16" height="5" fill="#2d527c" />
+          <rect x="6" y="13" width="12" height="1" fill="#58a6ff" />
+          <rect x="5" y="18" width="14" height="1" fill="#000000" />
+          <rect x="6" y="19" width="12" height="1" fill="#000000" />
+          <rect x="17" y="14" width="2" height="1" fill="#00ff66" />
+
+          {/* Left and Right Black Vertical Pixel Borders */}
+          <rect x="3" y="4" width="1" height="14" fill="#000000" />
+          <rect x="20" y="4" width="1" height="14" fill="#000000" />
+        </svg>
+      );
+
     case 'markdown':
       return (
         <svg viewBox="0 0 24 24" width={size} height={size} shapeRendering="crispEdges" className={className}>

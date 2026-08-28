@@ -68,32 +68,29 @@ export const id = {
   },
   inventory: {
     title: 'TECH STACK',
-    wakatimeBadge: 'DATA DARI WAKATIME',
     bagTitle: 'TAS (SLOT: 8/16)',
-    topBadge: 'UTAMA: PYTHON (36%)',
-    clickTip: 'Klik salah satu slot inventaris untuk melihat toolkit, use-case, dan persentase WakaTime.',
-    usageLevel: 'PENGGUNAAN & TINGKAT KEPENTINGAN',
+    clickTip: 'Klik salah satu slot inventaris untuk melihat toolkit, library, dan implementasi produksinya.',
     toolkitTitle: 'TOOLKIT & LIBRARY SERING DIGUNAKAN:',
     useCasesTitle: 'PENGGUNAAN UTAMA:',
     items: {
       python: {
-        category: 'BACKEND UTAMA',
+        category: 'STACK UTAMA',
         status: 'BAHASA HARIAN UTAMA',
         wakatimePct: '36.02%',
         rarity: 'UTAMA',
         useCases: 'Backend API, Otomatisasi Web & Scraper, Pemrosesan Data, Utilitas CLI',
         description: 'Pilar utama dalam pengembangan backend, automasi tugas berulang, pengolahan data terstruktur, dan orkestrasi skrip berkinerja tinggi.'
       },
-      markdown: {
-        category: 'DOKS & SPESIFIKASI',
-        status: 'STRUKTUR & ARSIP',
-        wakatimePct: '24.59%',
-        rarity: 'SPESIFIKASI',
-        useCases: 'Dokumentasi Arsitektur Sistem, Perancangan Teknis, Struktur Manajemen Pengetahuan',
-        description: 'Penulisan dokumentasi teknis yang terstruktur, ringkas, dan jelas untuk arsitektur proyek serta panduan integrasi sistem.'
+      database: {
+        category: 'ARSITEKTUR DATA',
+        status: 'DATABASE RELASIONAL',
+        wakatimePct: 'SQL',
+        rarity: 'DATABASE',
+        useCases: 'PostgreSQL, MySQL, SQLite, Query Kompleks, Desain Skema, Indeksasi & Transaksi',
+        description: 'Perancangan arsitektur basis data relasional, optimasi query dan transaksi ACID, strategi indeksasi, serta migrasi skema yang andal pada PostgreSQL, MySQL, dan SQLite.'
       },
       javascript: {
-        category: 'FRONTEND & API',
+        category: 'SKRIP CLIENT',
         status: 'ANTARMUKA DINAMIS',
         wakatimePct: '9.46%',
         rarity: 'FRONTEND',
@@ -101,7 +98,7 @@ export const id = {
         description: 'Pengembangan logika interaktif pada browser, manajemen state aplikasi web, dan integrasi API frontend.'
       },
       html: {
-        category: 'TATA LETAK & UI',
+        category: 'TAMPILAN WEB',
         status: 'GAYA SEMANTIK',
         wakatimePct: '6.87%',
         rarity: 'UI & STYLING',
@@ -109,7 +106,7 @@ export const id = {
         description: 'Fondasi struktural dan penataan visual antarmuka web yang rapi, semantik, dan bebas dari pergeseran tata letak.'
       },
       bash: {
-        category: 'OTOMATISASI CLI',
+        category: 'UTILITAS SISTEM',
         status: 'SKRIP TERMINAL',
         wakatimePct: '4.15%',
         rarity: 'OTOMASI',
@@ -117,7 +114,7 @@ export const id = {
         description: 'Interaksi langsung dengan kernel sistem operasi untuk otomatisasi alur kerja terminal, deployment, dan manajemen server Linux.'
       },
       php: {
-        category: 'SISI SERVER',
+        category: 'BACKEND MVC & SSR',
         status: 'RENDER SISI SERVER',
         wakatimePct: '1.96%',
         rarity: 'BACKEND',
@@ -125,17 +122,17 @@ export const id = {
         description: 'Pengembangan backend berbasis server-side rendering dan integrasi arsitektur MVC yang terstruktur.'
       },
       git: {
-        name: 'Git Versioning',
+        name: 'Git',
         category: 'KONTROL VERSI',
         status: 'ALAT UTAMA',
-        wakatimePct: 'HARIAN',
+        wakatimePct: 'KONTROL VERSI',
         rarity: 'DEVOPS',
         useCases: 'Pelacakan Riwayat Kode, Kolaborasi Tim, Otomatisasi CI/CD & Rilis',
         description: 'Pencatatan riwayat perubahan kode yang terorganisir untuk menjaga integritas dan stabilitas basis kode proyek.'
       },
       docker: {
         name: 'Docker',
-        category: 'KONTAINER & DEVOPS',
+        category: 'KONTAINERISASI',
         status: 'DEVOPS & DEPLOYMENT',
         wakatimePct: 'DEVOPS',
         rarity: 'INFRASTRUKTUR',
