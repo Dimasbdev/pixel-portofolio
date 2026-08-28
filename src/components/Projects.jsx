@@ -118,10 +118,14 @@ export const Projects = () => {
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
-                    <span className="bg-black/85 text-secondary-container font-code-sm font-bold text-[11px] uppercase tracking-wider px-3 py-1.5 border-2 border-secondary-container shadow-[2px_2px_0px_#000]">
-                      {t.projects.inspect}
-                    </span>
+                  <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1.5px]">
+                    <div className="filter drop-shadow-[3px_3px_0px_#000000] transform group-hover:scale-105 transition-transform">
+                      <div className="pixel-stepped-sm bg-secondary-container p-[2px]">
+                        <span className="pixel-stepped-sm bg-black text-secondary-container font-pixel text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-4 py-2 inline-block text-center">
+                          {t.projects.inspect}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -173,7 +177,6 @@ export const Projects = () => {
                 </div>
 
                 <div className="flex items-center gap-2 text-primary font-code-sm text-xs font-bold uppercase tracking-wider pr-10">
-                  <span className="text-primary-container">►</span>
                   <span>{selectedProject.category}</span>
                 </div>
 
@@ -195,13 +198,18 @@ export const Projects = () => {
                   {selectedProject.description}
                 </p>
 
-                <div className="bg-surface-variant/80 p-3 border-2 border-primary">
-                  <span className="font-code-sm text-[11px] font-bold text-primary uppercase tracking-wider block mb-1">
-                    {t.projects.summaryTitle}
-                  </span>
-                  <p className="font-code-sm text-xs text-on-surface-variant leading-relaxed">
-                    {selectedProject.details}
-                  </p>
+                {/* 8-Bit Pixel Stepped Project Summary Callout Box */}
+                <div className="filter drop-shadow-[3px_3px_0px_#000000]">
+                  <div className="pixel-stepped-sm bg-primary p-[2px]">
+                    <div className="pixel-stepped-sm bg-surface-variant p-3.5 flex flex-col gap-1.5">
+                      <span className="font-code-sm text-[11px] font-bold text-primary uppercase tracking-wider block">
+                        {t.projects.summaryTitle}
+                      </span>
+                      <p className="font-code-sm text-xs text-on-surface-variant leading-relaxed">
+                        {selectedProject.details}
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
