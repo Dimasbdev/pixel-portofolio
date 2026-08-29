@@ -256,7 +256,7 @@ export const TerminalModal = ({ isOpen, onClose }) => {
                 
                 {/* Top Hint Bar */}
                 <div className="relative z-10 bg-black/85 text-[#00ff66] font-silkscreen text-[10px] sm:text-[11px] px-3.5 py-1.5 border-2 border-[#00ff66] shadow-[3px_3px_0px_#000] animate-pulse text-center">
-                  {lang === 'id' ? '[ CMATRIX AKTIF - SENTUH LAYAR UNTUK KELUAR ]' : '[ CMATRIX RUNNING - TAP SCREEN TO EXIT ]'}
+                  {lang === 'id' ? '[ SENTUH LAYAR UNTUK KELUAR ]' : '[ TAP SCREEN TO EXIT ]'}
                 </div>
 
                 {/* Dedicated Touch Button for Mobile */}
