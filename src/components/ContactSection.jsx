@@ -6,7 +6,7 @@ import { useTranslation } from '../context/LanguageContext';
 
 export const ContactSection = React.memo(() => {
   const { t, lang } = useTranslation();
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', botcheck: false });
   const [fieldErrors, setFieldErrors] = useState({ name: false, email: false, message: false });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState({ show: false, type: 'success', title: '', message: '' });
@@ -18,10 +18,16 @@ export const ContactSection = React.memo(() => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Honeypot Trap: Silent drop if botcheck is checked
+    if (formData.botcheck) {
+      setFormData({ name: '', email: '', message: '', botcheck: false });
+      return;
+    }
+
     const errors = {
-      name: !formData.name.trim(),
-      email: !formData.email.trim() || !validateEmail(formData.email),
-      message: !formData.message.trim(),
+      name: !formData.name.trim() || formData.name.length > 100,
+      email: !formData.email.trim() || !validateEmail(formData.email) || formData.email.length > 254,
+      message: !formData.message.trim() || formData.message.length > 2000,
     };
 
     if (errors.name || errors.email || errors.message) {
@@ -60,6 +66,9 @@ export const ContactSection = React.memo(() => {
     // Start Real Submission via Web3Forms API
     setIsSubmitting(true);
 
+    // Sanitize name to prevent Email Header Injection (\r\n)
+    const sanitizedName = formData.name.replace(/[\r\n\t]/g, ' ').trim();
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -69,18 +78,23 @@ export const ContactSection = React.memo(() => {
         },
         body: JSON.stringify({
           access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          from_name: 'DF.DEV Portfolio Contact',
-          subject: `New Message from ${formData.name} - DF.DEV`,
+          name: sanitizedName,
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          botcheck: formData.botcheck,
+          from_name: `${sanitizedName} (via Portfolio)`,
+          subject: `New Message from ${sanitizedName} - DF.DEV`,
         }),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const result = await response.json();
 
       if (result.success) {
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', message: '', botcheck: false });
         setFieldErrors({ name: false, email: false, message: false });
 
         setToast({
@@ -99,7 +113,13 @@ export const ContactSection = React.memo(() => {
             origin: { y: 0.7 }
           });
         } catch (e) {}
+
+        // Cooldown protection: Keep submit disabled for 4 seconds after success
+        setTimeout(() => {
+          setIsSubmitting(false);
+        }, 4000);
       } else {
+        setIsSubmitting(false);
         playError();
         setToast({
           show: true,
@@ -109,6 +129,7 @@ export const ContactSection = React.memo(() => {
         });
       }
     } catch (err) {
+      setIsSubmitting(false);
       playError();
       setToast({
         show: true,
@@ -117,7 +138,6 @@ export const ContactSection = React.memo(() => {
         message: lang === 'id' ? 'Gagal terhubung ke server transmisi.' : 'Could not reach transmission gateway.'
       });
     } finally {
-      setIsSubmitting(false);
       setTimeout(() => {
         setToast((prev) => (prev.type === 'success' ? { ...prev, show: false } : prev));
       }, 4500);
@@ -188,6 +208,18 @@ export const ContactSection = React.memo(() => {
               </p>
 
               <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+                {/* Honeypot Spam Protection (Hidden from Humans, Traps Automated Bots) */}
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  style={{ display: 'none' }}
+                  checked={formData.botcheck}
+                  onChange={(e) => setFormData({ ...formData, botcheck: e.target.checked })}
+                />
+
                 <div>
                   <label className="font-code-sm text-xs font-bold text-on-surface uppercase tracking-wider block mb-1.5">
                     {t.contact.nameLabel}
@@ -195,6 +227,7 @@ export const ContactSection = React.memo(() => {
                   <div className="filter drop-shadow-[2px_2px_0px_#000]">
                     <input
                       type="text"
+                      maxLength={100}
                       value={formData.name}
                       onChange={(e) => {
                         setFormData({ ...formData, name: e.target.value });
@@ -215,6 +248,7 @@ export const ContactSection = React.memo(() => {
                   <div className="filter drop-shadow-[2px_2px_0px_#000]">
                     <input
                       type="email"
+                      maxLength={254}
                       value={formData.email}
                       onChange={(e) => {
                         setFormData({ ...formData, email: e.target.value });
@@ -235,6 +269,7 @@ export const ContactSection = React.memo(() => {
                   <div className="filter drop-shadow-[2px_2px_0px_#000]">
                     <textarea
                       rows={4}
+                      maxLength={2000}
                       value={formData.message}
                       onChange={(e) => {
                         setFormData({ ...formData, message: e.target.value });
