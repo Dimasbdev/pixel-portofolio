@@ -18,7 +18,6 @@ export const PixelIcon = React.memo(({ name, size = 20, className = '' }) => {
           </svg>
         );
 
-      case 'gamepad':
       case 'controller':
         return (
           <svg viewBox="0 0 16 16" width={size} height={size} fill="currentColor" shapeRendering="crispEdges" className={className}>
