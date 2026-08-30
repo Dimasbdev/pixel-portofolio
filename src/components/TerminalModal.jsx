@@ -22,9 +22,12 @@ export const TerminalModal = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
       setInput('');
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 100);
+      // Only auto-focus on desktop to prevent mobile keyboard from popping up and hiding confetti
+      if (window.innerWidth > 768) {
+        setTimeout(() => {
+          inputRef.current?.focus();
+        }, 100);
+      }
     } else {
       setInput('');
       setIsMatrixActive(false);
@@ -307,7 +310,6 @@ export const TerminalModal = ({ isOpen, onClose }) => {
                     onKeyDown={handleCommand}
                     placeholder={t.terminal.inputPrompt}
                     className="flex-1 bg-transparent text-secondary-container outline-none border-none font-code-sm text-xs md:text-sm"
-                    autoFocus
                   />
                 </div>
               </>

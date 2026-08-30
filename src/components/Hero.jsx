@@ -17,12 +17,22 @@ export const Hero = ({ onStartGame, onOpenResume }) => {
     const newCount = clickCount + 1;
     setClickCount(newCount);
 
+    // Tiny confetti burst on every single click for immediate feedback
+    triggerConfetti({
+      particleCount: 15,
+      spread: 40,
+      origin: { y: 0.6 },
+      colors: ['#00eefc', '#a900a9'],
+    });
+
     if (newCount % 5 === 0) {
       playCoin();
+      // Big confetti burst for combo!
       triggerConfetti({
-        particleCount: 50,
-        spread: 60,
-        origin: { y: 0.6 }
+        particleCount: 80,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#a900a9', '#00eefc', '#fae500', '#ffffff']
       });
       setBonusText(t.hero.comboText.replace('{count}', newCount));
       setTimeout(() => setBonusText(''), 2500);
