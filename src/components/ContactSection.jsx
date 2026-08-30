@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { playClick, playCoin, playError } from '../utils/audio';
 import { PixelIcon } from './PixelIcon';
 import { useTranslation } from '../context/LanguageContext';
+import { triggerConfetti } from '../utils/confetti';
 
 export const ContactSection = React.memo(() => {
   const { t, lang } = useTranslation();
@@ -105,14 +106,12 @@ export const ContactSection = React.memo(() => {
         });
 
         playCoin();
-        try {
-          const confetti = (await import('canvas-confetti')).default;
-          confetti({
-            particleCount: 90,
-            spread: 75,
-            origin: { y: 0.7 }
-          });
-        } catch (e) {}
+        triggerConfetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#00ff66', '#00eefc', '#ffffff']
+        });
 
         // Cooldown protection: Keep submit disabled for 4 seconds after success
         setTimeout(() => {

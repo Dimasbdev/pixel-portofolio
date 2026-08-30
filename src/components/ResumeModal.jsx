@@ -2,7 +2,7 @@ import React from 'react';
 import { playClick, playCoin } from '../utils/audio';
 import { PixelIcon } from './PixelIcon';
 import { useTranslation } from '../context/LanguageContext';
-import confetti from 'canvas-confetti';
+import { triggerConfetti } from '../utils/confetti';
 
 export const ResumeModal = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
@@ -10,9 +10,11 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
   const handleDownload = () => {
     playCoin();
-    confetti({
-      particleCount: 50,
+    triggerConfetti({
+      particleCount: 80,
       spread: 60,
+      origin: { y: 0.8 },
+      colors: ['#a900a9', '#00eefc', '#fae500']
     });
     alert('Simulating Resume PDF Download for Dimas Firmansyah (You can link your PDF file)');
   };

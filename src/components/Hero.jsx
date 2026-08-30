@@ -5,13 +5,7 @@ import { useTranslation } from '../context/LanguageContext';
 
 const HERO_IMAGE = "/hero-pixel.webp";
 
-// Lazy trigger for confetti to remove canvas-confetti from critical initial bundle
-const triggerConfetti = async (opts) => {
-  try {
-    const confetti = (await import('canvas-confetti')).default;
-    confetti(opts);
-  } catch (e) {}
-};
+import { triggerConfetti } from '../utils/confetti';
 
 export const Hero = ({ onStartGame, onOpenResume }) => {
   const { t } = useTranslation();
